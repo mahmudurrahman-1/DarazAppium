@@ -12,17 +12,18 @@ import java.time.Duration;
 
 public class BaseDriver {
 
-    public AndroidDriver driver = null;
+    public static AndroidDriver driver = null;
     URL url = null;
 
-    public AndroidDriver setup(String platform, String device, String version, String udid) {
+    public AndroidDriver setup(String platform, String version,String device, String udid) {
 
         //Android File Location
-        File file_loc = new File("src/main/resource");
+        DesiredCapabilities cap = new DesiredCapabilities();
+        File file_loc = new File("src/main/resources");
         File filename = new File(file_loc, "DarazOnlineShopping.apk");
 
         //Setting up android device
-        DesiredCapabilities cap = new DesiredCapabilities();
+
         cap.setCapability(MobileCapabilityType.PLATFORM_NAME, platform);
         cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, version);
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, device);
@@ -31,7 +32,7 @@ public class BaseDriver {
 
         //Setting up url
         try {
-            url = new URL("0.0.0.0:4723/wd/hub");
+            url = new URL("http://0.0.0.0:4723/wd/hub");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
