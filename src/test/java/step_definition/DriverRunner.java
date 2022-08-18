@@ -12,7 +12,7 @@ public class DriverRunner extends BaseDriver {
     Properties prop = DataLoader.loadProperties("initialization.properties");
 
     @Before
-    public void initilization() {
+    public void start() {
         String plname, plversion, device, udid;
         plname = prop.getProperty("plname");
         plversion = prop.getProperty("plversion");
@@ -22,7 +22,7 @@ public class DriverRunner extends BaseDriver {
     }
 
     @After
-    public void closedown() {
+    public void close() {
         PageDriver.getCurrentDriver().quit();
     }
 }
