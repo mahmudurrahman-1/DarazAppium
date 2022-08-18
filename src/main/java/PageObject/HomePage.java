@@ -11,12 +11,22 @@ public class HomePage {
     }
     /***********
      * Locators
+     * android:id/button2
+     * com.daraz.android:id/intro_skip_btn
+     *
      */
+    @FindBy(id="android:id/button2")
+    WebElement bangla;
+    @FindBy(id="com.daraz.android:id/intro_skip_btn")
+    WebElement skip;
     @FindBy(className = "android.widget.FrameLayout")
     WebElement account;
 
-    public void printing(){
-        System.out.println("Printed");
+    public void banglaoption(){
+        bangla.click();
+    }
+    public void skipoption(){
+        skip.click();
     }
 
 }
