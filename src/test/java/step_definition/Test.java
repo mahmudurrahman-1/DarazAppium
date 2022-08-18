@@ -9,7 +9,8 @@ public class Test {
 
     @Given("^test$")
     public void check() throws InterruptedException{
-        Thread.sleep(2000);
+
+        Thread.sleep(50000);
         home.banglaoption();
         Thread.sleep(2000);
         home.skipoption();
