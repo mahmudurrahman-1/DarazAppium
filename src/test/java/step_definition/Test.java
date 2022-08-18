@@ -8,7 +8,10 @@ public class Test {
 
 
     @Given("^test$")
-    public void check(){
-        home.printing();
+    public void check() throws InterruptedException{
+        Thread.sleep(2000);
+        home.banglaoption();
+        Thread.sleep(2000);
+        home.skipoption();
     }
 }
