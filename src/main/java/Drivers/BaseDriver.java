@@ -29,6 +29,7 @@ public class BaseDriver {
         cap.setCapability(MobileCapabilityType.DEVICE_NAME, device);
         cap.setCapability(MobileCapabilityType.UDID, udid);
         cap.setCapability(MobileCapabilityType.APP, filename.getAbsolutePath());
+        cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
         //Setting up url
         try {
@@ -36,6 +37,7 @@ public class BaseDriver {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+        assert url != null;
         driver = new AndroidDriver(url, cap);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         PageDriver.getInstance().setupdriver(driver);
